@@ -4,8 +4,8 @@ lock "~> 3.14.1"
 set :stages, %w(production staging)
 set :default_stage, "production"
 
-set :application, "handshake"
-set :repo_url, "https://github.com/thkernel/imofy.git"
+set :application, "handshakeweb"
+set :repo_url, "https://github.com/thkernel/handshakeweb.git"
 #set :ssh_options, { auth_methods: %w(password), password: "AMOSXZIBITDE88" }
 
 # Default branch is :master
