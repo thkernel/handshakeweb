@@ -27,7 +27,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -91,4 +91,34 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  
+
+  #For mail
+
+config.action_mailer.perform_deliveries = true
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.default :charset => "utf-8"
+
+config.action_mailer.default_url_options = { protocol: "https", host: Rails.application.credentials.dig(:email, :production, :host)  }
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  address:              Rails.application.credentials.dig(:email, :production, :address) ,
+  port:                 Rails.application.credentials.dig(:email, :production, :port) ,
+  domain:               Rails.application.credentials.dig(:email, :production, :domain) ,
+  user_name:            Rails.application.credentials.dig(:email, :production, :user_name) ,
+  password:             Rails.application.credentials.dig(:email, :production, :password) ,
+  authentication:       Rails.application.credentials.dig(:email, :production, :authentication) ,
+  enable_starttls_auto: Rails.application.credentials.dig(:email, :production, :enable_starttls_auto)  ,
+  :ssl => Rails.application.credentials.dig(:email, :production, :ssl) 
+}
+
+ 
+
+ #Credentials requirment
+config.require_master_key = true
+# Added to customize error page
+config.exceptions_app = self.routes
+
+
 end
