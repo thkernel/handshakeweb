@@ -63,6 +63,8 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    autoprefixer-rails (10.2.4.0)
+      execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -387,6 +389,7 @@ DEPENDENCIES
   action_mailer_auto_url_options (~> 1.0, >= 1.0.2)
   acts-as-taggable-on (~> 6.5)
   annotate (~> 2.7, >= 2.7.5)
+  autoprefixer-rails
   better_errors
   binding_of_caller
   bootsnap (>= 1.1.0)
